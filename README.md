@@ -30,7 +30,6 @@ DevOps is a dynamic and transformative approach that revolutionizes how software
 - [Postfix](services/linux/Postfix/README.md)
 - Active Directory
 - [LDAP](services/linux/LDAP/README.md)
-- ACLs
 
 ### Databases
 - MySQL
@@ -53,16 +52,21 @@ DevOps is a dynamic and transformative approach that revolutionizes how software
 - Git Workflow Automation
 - Git Best Practices
 
+### Web Servers
+- [Nginx](deployment/nginx/README.md)
+- Apache 
+
 ### Deployment
-- Static (HTML, CSS, and JS)
+- [Prerequisites](deployment/Prerequisites.md)
+- [Static (HTML, CSS, and JS)](deployment/static/html/README.md)
 - Static (Webpack)
 - Angular
 - React
 - VueJs
-- Java (Spring)
-- PHP (Laravel)
-- NodeJS (Express)
-- Python (Flask)
+- [Java (Spring)](./deployment/spring/README.md)
+- [PHP (Laravel)](./deployment/laravel/README.md)
+- [NodeJS (Express)](./deployment/express/README.md)
+- [Python (Flask)](./deployment/flask/README.md)
 
 ### Virtualization
 - VMware
@@ -70,17 +74,18 @@ DevOps is a dynamic and transformative approach that revolutionizes how software
 - Oracle VM VirtualBox
 
 ### Dockerization
-- Configuration Services
+- [Installation et Configuration](docker/README.md)
 - Application Deployment
-    - Static (HTML, CSS, and JS)
+    - [Prerequisites](deployment/Prerequisites.md)
+    - [Static (HTML, CSS, and JS)](deployment/static/html/README.md)
     - Static (Webpack)
     - Angular
     - React
     - VueJs
-    - Java (Spring)
-    - PHP (Laravel)
-    - NodeJS (Express)
-    - Python (Flask)
+    - [Java (Spring)](./deployment/spring/README.md)
+    - [PHP (Laravel)](./deployment/laravel/README.md)
+    - [NodeJS (Express)](./deployment/express/README.md)
+    - [Python (Flask)](./deployment/flask/README.md)
 
 ### Automation
 - Scripting
@@ -97,12 +102,15 @@ DevOps is a dynamic and transformative approach that revolutionizes how software
 - GitLab
 
 ### Security
+- SSL/TLS
 - Prowler
 - DevSecOps
 - Securing Pipelines
 - Securing Chains
+- ACL
 
 ### Monitoring
+- Logging
 - Prometheus
 - Kibana
 - Grafana
