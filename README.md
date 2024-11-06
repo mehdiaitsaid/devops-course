@@ -69,9 +69,42 @@ DevOps is a dynamic and transformative approach that revolutionizes how software
 - [Python (Flask)](./deployment/flask/README.md)
 
 ### Virtualization
-- VMware
-- vSphere
-- Oracle VM VirtualBox
+- VMware Workstation
+    - Installation
+    - Create a new VM
+    - Expand Resource CPU and Memory
+    - Expand and Add Disks
+    - Networking
+    - Snapshot
+    - Cloning
+- ESXi and vSphere
+    - [Installation and Initial Configuration](./virtualization/esxi-vSphere/README.md)
+    - Create a new VM
+    - Storage
+    - Networking
+    - Snapshots and Cloning
+    - High Availability (HA)
+    - Backup and Recovery
+    - vMotion
+    - Distributed Resource Scheduler (DRS)
+    - Fault Tolerance (FT)
+    - Performance Monitoring
+- vCenter
+    - Installation and Initial Configuration
+    - Permissions and User Management
+    - Resource Management
+    - High Availability
+    - Monitoring and Alarms
+    - Backup and Restore
+    - Cloning and Templates
+- Automation
+    - PowerCLI
+    - vRealize Orchestrator
+    - Automated Deployment
+    - Backup Automation
+    - Scheduling and Task Automation
+    - Configuration Management
+    - Monitoring and Alerts Automation
 
 ### Dockerization
 - [Installation et Configuration](docker/README.md)
