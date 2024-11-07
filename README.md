@@ -79,15 +79,11 @@ DevOps is a dynamic and transformative approach that revolutionizes how software
     - Cloning
 - ESXi and vSphere
     - [Installation and Initial Configuration](./virtualization/esxi-vSphere/README.md)
-    - Create a new VM
-    - Storage
-    - Networking
+    - [Create a new VM](./virtualization/esxi-vSphere/CreateVm.md)
+    - [Storage](./virtualization/esxi-vSphere/Storage.md)
+    - [Expanding Resources](./virtualization/esxi-vSphere/ExpandingResources.md)
+    - [Networking](./virtualization/esxi-vSphere/Networking.md)
     - Snapshots and Cloning
-    - High Availability (HA)
-    - Backup and Recovery
-    - vMotion
-    - Distributed Resource Scheduler (DRS)
-    - Fault Tolerance (FT)
     - Performance Monitoring
 - vCenter
     - Installation and Initial Configuration
@@ -97,6 +93,9 @@ DevOps is a dynamic and transformative approach that revolutionizes how software
     - Monitoring and Alarms
     - Backup and Restore
     - Cloning and Templates
+    - vMotion
+    - Distributed Resource Scheduler (DRS)
+    - Fault Tolerance (FT)
 - Automation
     - PowerCLI
     - vRealize Orchestrator
