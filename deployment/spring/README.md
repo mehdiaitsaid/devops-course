@@ -19,7 +19,7 @@ Key features of Spring Boot include:
 > - Alternatively, if you prefer to use Docker, make sure Docker is installed and running on your server. You can refer to the [Docker Installation Guide](../../../docker/README.md) for detailed instructions.
 
 
-In this lab, we will learn how to deploy a Spring App on an Ubuntu server using Nginx. We will cover how to transfer your project to the server using SCP or a GitHub repository.For this lab, we will use the subdomain spring.server.io and a demo project named [spring.jar](spring.jar) is attached in the same directory as this lab for your convenience.
+In this lab, we will learn how to deploy a Spring App on an Ubuntu server using Nginx. We will cover how to transfer your project to the server using SCP or a GitHub repository.For this lab, we will use the subdomain spring.server.io and a demo project named [spring.jar](spring.zip) is attached in the same directory as this lab for your convenience.
 
 
 ## Deploying a Spring App Using Nginx without Docker
@@ -68,7 +68,13 @@ scp -r <local-path> <user>@<server-ip>:/workdir/spring.server.io
 Example:
 
 ```bash
-scp -r ./spring.jar serverio@192.168.1.10:/workdir/spring.server.io
+scp -r ./spring.zip serverio@192.168.1.10:/workdir/spring.server.io
+```
+
+And extract the spring.zip file :
+
+```bash
+sudo unzip spring.zip
 ```
 
 #### Using GitHub:
@@ -121,8 +127,58 @@ You can later verify this by checking the version of Java.
 ```bash
 java -version
 ```
+#### Installing Maven 
+Maven is a build automation and project management tool primarily used for Java-based applications. It simplifies the process of compiling, testing, packaging, and managing project dependencies using a standard project structure and configuration file (pom.xml). Maven also supports plugins to extend its capabilities for various tasks like generating documentation or deploying applications.
 
-### Step 4: Configure Nginx
+We have to install the Maven in our system to build the spring project and get the Jar file that can run for production :
+
+```bash
+sudo apt install maven -y
+```
+
+Check the installed Maven version:
+```bash
+mvn -version
+```
+
+
+You should see output like this:
+
+```bash
+Apache Maven 3.x.x (latest version installed)
+Maven home: /usr/share/maven
+Java version: 17, vendor: OpenJDK, runtime: /usr/lib/jvm/java-17-openjdk-amd64
+Default locale: en_US, platform encoding: UTF-8
+```
+
+
+### Step 4: Building a Spring Boot application
+Building a Spring Boot application involves compiling the source code, packaging it, and making it executable. Follow these steps:
+
+Go to the root directory of your Spring Boot application where the pom.xml (for Maven) or build.gradle (for Gradle) file is located:
+
+```bash
+cd /workdir/spring.server.io
+```
+
+Run the following command to build the project:
+
+```bash
+mvn clean package
+```
+
+This command:
+- Cleans the project (clean)
+- Compiles the source code
+- Packages the application into a JAR file (package).
+
+By default, the JAR file is located in the target directory:
+
+```bash
+/workdir/spring.server.io/{app-name-version}.jar
+```
+
+### Step 5: Configure Nginx
 
 1. Create a new Nginx configuration file for your Spring App :
 
@@ -151,7 +207,7 @@ server {
 }
 ```
 
-### Nginx Configuration for Spring Boot Application
+#### Nginx Configuration for Spring Boot Application
 
 This Nginx configuration file sets up a server to handle HTTP requests for a Spring Boot application hosted under the `spring.server.io` domain. The Nginx server acts as a reverse proxy, forwarding incoming requests to the Spring Boot application running on localhost at port 8080.
 
@@ -202,7 +258,7 @@ sudo nginx -t
 sudo systemctl reload nginx
 ```
 
-### Step 5: Creating an Init Script for the Spring Boot Application
+### Step 6: Creating an Init Script for the Spring Boot Application
 To access the new application externally across the internet, a few more steps are required. An init script for the Spring Boot application must be created inside the systemd server. This registers Spring Boot as a service and launches it at system start-up time.
 
 1. Create a service script for spring.server.io.service in the /etc/systemd/system directory as follows. The ExecStart field must contain the full path to the application .jar file. This is the same file that ran inside Tomcat server earlier. For the path name, replace userdir with the name of the user directory.
@@ -219,7 +275,7 @@ User=username
 Type=simple
 
 [Service]
-ExecStart=/usr/bin/java -jar /workdir/spring.server.io/spring.jar
+ExecStart=/usr/bin/java -jar /workdir/spring.server.io/<app-name-version>.jar
 Restart=always
 StandardOutput=syslog
 StandardError=syslog
@@ -228,6 +284,8 @@ SyslogIdentifier=/workdir/spring.server.io
 [Install]
 WantedBy=multi-user.target
 ```
+
+**Change the <app-name-version> by the build name or your app**
 
 2. Start the service.
 ```bash
@@ -239,7 +297,7 @@ sudo systemctl start spring.server.io
 sudo systemctl status spring.server.io
 ```
 
-### Step 6: Verify the Deployment
+### Step 7: Verify the Deployment
 Open a web browser on your client machine.
 Navigate to http://spring.server.io to see your deployed Spring App.
 

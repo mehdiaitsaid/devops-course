@@ -86,7 +86,7 @@ DevOps is a dynamic and transformative approach that revolutionizes how software
     - Snapshots and Cloning
     - Performance Monitoring
 - vCenter
-    - Installation and Initial Configuration
+    - [Installation and Initial Configuration](./virtualization/vCenter/README.md)
     - Permissions and User Management
     - Resource Management
     - High Availability
