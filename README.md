@@ -67,6 +67,7 @@ DevOps is a dynamic and transformative approach that revolutionizes how software
 - [PHP (Laravel)](./deployment/laravel/README.md)
 - [NodeJS (Express)](./deployment/express/README.md)
 - [Python (Flask)](./deployment/flask/README.md)
+- [Mini-Project](./deployment/mini-project/README.md)
 
 ### Virtualization
 - VMware Workstation
