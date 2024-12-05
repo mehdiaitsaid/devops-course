@@ -81,5 +81,5 @@ Your project must include the following functionalities:
 ## Example Video
 Here’s an example video demonstrating the terminal output and tool functionalities:
 
-[![Example Video](image-1.png)]()
+[![Example Video](image-1.png)](https://drive.google.com/file/d/188mlmB9wqxH1usQ8fRKN4czMrrGg03uv/view?usp=sharing)
 
